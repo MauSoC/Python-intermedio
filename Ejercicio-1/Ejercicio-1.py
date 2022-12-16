@@ -27,8 +27,15 @@ def listar_tamanio(path):
 
 
 
-def listar_todo(path):
-    pass
+def listar_todo():
+    print("----------------------------------------------------------------\n")
+    print("Cuarta parte imprimir todos los archivos que son carpetas y su tamaño apartir de la ubicacion actual:\n")
+    lista = os.environ['HOME']
+    listaOs = os.scandir(lista)
+    listaAux=[]
+    for ls in listaOs:
+        if ls.is_dir:
+            print("nombre: ",ls.name,"\tsize:",os.path.getsize(ls.path))
 
 
 def main():
@@ -36,7 +43,8 @@ def main():
     listar_archivos(path)
     listar_directorios(path)
     listar_tamanio(path)
-    listar_todo(path)
+    listar_todo()
+
 
 
 if __name__ == "__main__":
